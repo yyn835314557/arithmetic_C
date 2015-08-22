@@ -25,3 +25,12 @@ int BinaryTreeNode::CreateBiTree(BiTree &T){
     }
     return 0;
 }
+
+void BinaryTreeNode::Visit(BiTree T){
+    if (T ->data != '#') {
+        printf("%c",T->data);
+    }
+}// 输出函数
+void PreOrder(BiTree T);//先序遍历
+void InOrder(BiTree T);//中序遍历
+void PostOrder(BiTree T);//后续遍历
