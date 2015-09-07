@@ -31,25 +31,25 @@ using namespace::std;
 //        return (string(start,end - start));
 //    }
 
-void remove(char *str){
-    if (!str || strlen(str) == 0) {
-        return;
-    }
-    char *p =str;
-    while (p[0] == ' ') {
-        p++;
-    }
-    int len  = strlen(p);
-    if (len < 1) {
-        str[0] = '\0';
-        return;
-    }
-    while (p[len -1] == ' ') {
-        len --;
-        p[len] = '\0';
-        strncpy(str, p, strlen(p)+1); //char*strncpy(char*dest,char*src,size_tn) 将s2指向的字符串的前n个长度的字符放到s1指向的字符串中
-    }
-}
+//void remove(char *str){
+//    if (!str || strlen(str) == 0) {
+//        return;
+//    }
+//    char *p =str;
+//    while (p[0] == ' ') {
+//        p++;
+//    }
+//    int len  = strlen(p);
+//    if (len < 1) {
+//        str[0] = '\0';
+//        return;
+//    }
+//    while (p[len -1] == ' ') {
+//        len --;
+//        p[len] = '\0';
+//        strncpy(str, p, strlen(p)+1); //char*strncpy(char*dest,char*src,size_tn) 将s2指向的字符串的前n个长度的字符放到s1指向的字符串中
+//    }
+//}
 
 
 
@@ -57,13 +57,15 @@ void trim(char *str){
     if (NULL == str || 0 == strlen(str)) {
         return;
     }
-    char *p1 = str;
-    char *p2 = str + strlen(str) -1;
+    char *p1 = str; // 头指针
+    char *p2 = str + strlen(str) -1;    // 尾指针
     while (p2>str && *p2 == ' ' ){
             p2--;
         }
-        p2++;
-    *p2 = 0;
+    p2++;
+    *p2 = 0; // 结束符 要加 \0;
+    
+    // 非0即为真
     while (*p1 && *p1 == ' ') {
         p1++;
     }
@@ -73,16 +75,19 @@ void trim(char *str){
 
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-//    string str = solve(argv[1]);
-//    std::cout << argv[1]<<"------>"<<str<<endl;
-    
+    char str1[50] = "   sdadad        ";
+    trim(str1);
     string s3[10] = {"1","2","3"};
     char s1[10] = "abcd";
     char s2[10] = "ABCDEF";
+    cout<<str1<<endl;
     cout<<s1<<endl;
     cout<<s2<<endl;
     cout<<s3<<endl;
-//    prinf("s1=%s\ns2=%s\n",s1,s2);
+    
+    strncpy(s1, s2, 3);
+    cout<<s1<<endl;
+    cout<<s2<<endl;
+    
     return 0;
 }
